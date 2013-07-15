@@ -1,0 +1,118 @@
+/**
+ * A simple theme for reveal.js presentations, similar
+ * to the default theme. The accent color is darkblue.
+ *
+ * This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
+ * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Lato', sans-serif;
+$mainColor: #000;
+$headingFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingColor: #000;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: #FFF;
+$linkColor: #1472ac;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: rgba(0, 0, 0, 0.99);
+
+$primary: #ea8f40;
+
+@mixin bodyBackground() {
+  @include vertical-gradient( rgba(255,255,255,1), rgba(229,229,229,1) );
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+.reveal {
+  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+  .icon {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    z-index: 100;
+  }
+  i {
+    font-family: FontAwesome;
+    font-style: normal;
+  }
+  h1, h2, h3, h4, h5, h6, small {
+    
+  }
+
+  h1 {
+    font-size: 2.5em;
+    font-weight: 100;
+    line-height: 1.333em;
+    margin-bottom: 0.5em;
+  }
+  h2 {
+    font-size: 1.75em;
+    font-weight: 100;
+    line-height: 1.333em;
+  }
+  small {
+    color: #555;
+    text-transform: uppercase;
+  }
+  .progress span {
+    background: $primary;
+  }
+  section img {
+    border: none;
+  }
+  section {
+    &.front {
+      h2 {
+        margin-top: 1.5em;
+      }
+      small {
+        color: $primary;
+      }
+    }
+    &.snow-whitehead,
+    &.cholera-map {
+      h2 {
+        margin-top: 50%;
+        color: #FFF;
+        background: lighten($primary, 18);
+        padding: 0.25em 0;
+      }
+    }
+    &.cholera-map {
+      h2 {
+        margin-top: 58%;
+      }
+    }
+    &.mug-slide {
+      .wrapper {
+        .mug {
+          width: 35%;
+          float: left;
+          padding-right: 2%;
+        }
+        .info {
+          width: 63%;
+          float: left;
+          text-align: left;
+        }
+      }
+    }
+  }
+  .cartodb-embed-map img {
+    box-shadow: none;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
